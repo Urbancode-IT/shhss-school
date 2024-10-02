@@ -9,9 +9,15 @@ const port = 3000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+require('dotenv').config();
 
-// MongoDB connection (you can change the database name as needed)
-const uri = 'mongodb://localhost:27017/eventRegistrationDB';
+// MongoDB connection using the URI from the .env file
+const uri = process.env.MONGODB_URI;
+if (!uri) {
+    console.error('Error: MONGODB_URI is not defined in the .env file.');
+    process.exit(1);
+}
+
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log('Error:', err));
