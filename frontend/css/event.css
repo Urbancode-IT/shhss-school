@@ -1,0 +1,823 @@
+.h1 ,.h2,h3{
+    font-family:"poppins", sans-serif;
+    color: black;
+    font-size: 18px;
+  }
+  p{
+    font-family:"poppins"!important; 
+  }
+  :root {
+    --default-font: "poppins","Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --heading-font:  "poppins","Raleway",  sans-serif;
+    --nav-font: "poppins","Raleway",  sans-serif;
+  }
+  
+  :root { 
+    --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+    --default-color: #2f3138; /* Default color used for the majority of the text content across the entire website */
+    --heading-color: #1F316F ; /* Color for headings, subheadings and title throughout the website */
+    --accent-color: #03a7d3; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+    --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+    --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  }
+  
+  /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+  :root {
+    --nav-color: rgba(0, 0, 0, 0.65)/* The default color of the main navmenu links */
+    --nav-hover-color: #03a7d3; /* Applied to main navmenu links when they are hovered over or active */
+    --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+    --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+    --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
+    --nav-dropdown-hover-color: #03a7d3; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  }
+  
+  /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+  
+  .light-background {
+    --background-color: #f2f2f3;
+    --surface-color: #ffffff;
+  }
+  
+  .dark-background {
+    --background-color: #000820;
+    --default-color: #ffffff;
+    --heading-color: #ffffff;
+    --surface-color: #001553;
+    --contrast-color: #ffffff;
+  }
+  
+  /*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+.section-title {
+    text-align: center;
+    padding-bottom: 60px;
+    position: relative;
+  }
+  
+  .section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+  
+  .section-title h2:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  
+  .section-title p {
+    margin-bottom: 0;
+  }
+  
+  /*--------------------------------------------------------------
+  # Hero Section
+  --------------------------------------------------------------*/
+  .hero {
+margin-top:40px;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    padding: 100px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   text-transform: uppercase;
+  }
+  
+  .hero img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  
+  .hero:before {
+    content: "";
+    background: color-mix(in srgb, var(--background-color), transparent 30%);
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
+  
+  .hero .container {
+    position: relative;
+    z-index: 3;
+  }
+  
+  .hero h2 {
+    font-family: "Montserrat",poppins, sans-serif;
+    margin: 0;
+    font-size: 35px;
+    color:white;
+    font-weight: bold;
+  }
+  
+  .hero h2 span {
+    color: var(--accent-color);
+  }
+  
+  .hero p {
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    margin: 10px 0 0 0;
+    font-size: 20px;
+    text-transform: lowercase;
+  }
+  
+  @media (max-width: 768px) {
+    .hero h2 {
+      font-size: 32px;
+      line-height: 36px;
+    }
+  
+    .hero p {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+  
+  .hero .about-info {
+    overflow: hidden;
+    position: relative;
+    padding: 60px 0 40px 0;
+    z-index: 4;
+    width: 100%;
+  }
+  
+  .hero .about-info:before {
+    content: "";
+    background: color-mix(in srgb, var(--background-color), transparent 55%);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .hero .about-info h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .hero .about-info h3 {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .hero .about-info p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+
+  .header_section {
+    background: #fff;
+    border-bottom: 2px solid #03a7d3;
+}
+  
+  /*--------------------------------------------------------------
+  # Contact Section
+  --------------------------------------------------------------*/
+  .contact .info-item {
+    background-color: var(--surface-color);
+    padding: 20px 0 30px 0;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact .info-item i {
+    font-size: 20px;
+    color: var(--accent-color);
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 50%;
+    border: 2px dotted color-mix(in srgb, var(--accent-color), transparent 40%);
+  }
+  
+  .contact .info-item h3 {
+    font-size: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 10px 0;
+  }
+  
+  .contact .info-item p {
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+  
+  .contact .php-email-form {
+    background-color: var(--surface-color);
+    height: 100%;
+    padding: 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 575px) {
+    .contact .php-email-form {
+      padding: 20px;
+    }
+  }
+  
+  .contact .php-email-form input[type=text],
+  .contact .php-email-form input[type=email],
+  .contact .php-email-form textarea {
+    font-size: 14px;
+    padding: 10px 15px;
+    box-shadow: none;
+    border-radius: 0;
+    color: var(--default-color);
+    background-color: var(--surface-color);
+    border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+  }
+  
+  .contact .php-email-form input[type=text]:focus,
+  .contact .php-email-form input[type=email]:focus,
+  .contact .php-email-form textarea:focus {
+    border-color: var(--accent-color);
+  }
+  
+  .contact .php-email-form input[type=text]::placeholder,
+  .contact .php-email-form input[type=email]::placeholder,
+  .contact .php-email-form textarea::placeholder {
+    color: color-mix(in srgb, var(--default-color), transparent 70%);
+  }
+  
+  .contact .php-email-form button[type=submit] {
+    color: var(--contrast-color);
+    background: var(--accent-color);
+    border: 0;
+    padding: 10px 30px;
+    transition: 0.4s;
+    border-radius: 50px;
+  }
+  
+  .contact .php-email-form button[type=submit]:hover {
+    background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  }
+/*--------------------------------------------------------------
+# Events Section
+--------------------------------------------------------------*/
+.events .details h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .events .details .social {
+    margin-bottom: 15px;
+  }
+  
+  .events .details .social a {
+    background: color-mix(in srgb, var(--default-color), transparent 92%);
+    color: color-mix(in srgb, var(--default-color), transparent 30%);
+    line-height: 1;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .events .details .social a:hover {
+    background: var(--accent-color);
+    color: var(--contrast-color);
+  }
+  
+  .events .details .social a i {
+    font-size: 16px;
+    line-height: 0;
+  }
+  
+  .events .details p {
+    color: color-mix(in srgb, var(--default-color), transparent 30%);
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+      /*==--------- -----------------------*/
+      .gallery .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .gallery .swiper-slide img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      
+      .swiper-pagination-bullet {
+        background-color: #000;
+        opacity: 0.5;
+      }
+      
+      .swiper-pagination-bullet-active {
+        background-color: #03a7d3;
+      }
+    
+.fa-phone{
+      transform: rotate(45deg); /* Rotate the icon by 45 degrees */
+  }
+.play_btn a i{
+    color:#fff
+  }
+.progress-button {
+    background-color: #03a7d3;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+}
+
+.progress-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: width .5s ease; /* Progress animation duration */
+}
+
+.progress-button:hover::before {
+    width: 100%; /* Progress bar reaches full width on hover */
+}
+
+.progress-button:hover {
+    background-color: #03a7d3;
+}
+/*--------------------------------------------------------------
+# Schedule Section
+--------------------------------------------------------------*/
+.schedule {
+  --background-color: color-mix(in srgb, var(--alt-background-color), transparent 95%);
+}
+
+.schedule .nav-tabs {
+  text-align: center;
+  margin: auto;
+  display: block;
+  border-bottom: 0;
+  margin-bottom: 30px;
+}
+
+.schedule .nav-tabs li {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.schedule .nav-tabs a {
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  background-color: var(--heading-color);
+  color: var(--contrast-color);
+  padding: 10px 100px;
+}
+
+@media (max-width: 991px) {
+  .schedule .nav-tabs a {
+    padding: 8px 60px;
+  }
+ 
+}
+
+@media (max-width: 767px) {
+  .schedule .nav-tabs a {
+    padding: 8px 50px;
+  }
+  iframe{
+    overflow: hidden;
+    width: fit-content;
+    margin: 0 10px;
+  }
+  .schedule .nav-tabs li{
+    
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .schedule .nav-tabs a {
+    padding: 8px 30px;
+  }
+  .schedule .nav-tabs li{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.schedule .nav-tabs a.active {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.schedule .sub-heading {
+  text-align: center;
+  font-size: 18px;
+  font-style: italic;
+  margin: 0 auto 30px auto;
+}
+
+@media (min-width: 991px) {
+  .schedule .sub-heading {
+    width: 75%;
+  }
+}
+
+.schedule .tab-pane {
+  transition: ease-in-out 0.2s;
+}
+
+.schedule .schedule-item {
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  transition: background-color ease-in-out 0.3s;
+}
+
+.schedule .schedule-item time {
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.schedule .schedule-item .speaker {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+  float: left;
+  margin: 0 10px 10px 0;
+}
+
+.schedule .schedule-item .speaker img {
+  height: 100%;
+  transform: translateX(-50%);
+  margin-left: 50%;
+  transition: all ease-in-out 0.3s;
+}
+
+.schedule .schedule-item h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.schedule .schedule-item h4 span {
+  font-style: italic;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.schedule .schedule-item p {
+  font-style: italic;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-bottom: 0;
+}
+
+.blog {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  flex-basis: 30%;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog h2 {
+  color: #001553;
+  font-size: 24px;
+}
+
+.blog p {
+  color: #666;
+  margin: 20px 0;
+}
+
+.blog ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.blog ul li {
+  margin: 10px 0;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog ul li::before {
+  content: '✔';
+  color: #001553;
+  margin-right: 8px;
+}
+
+/* Blog hover effect */
+.blog:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+.blog .register-btn {
+  background-color: #03a7d3;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+}
+
+.blog .register-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: width .5s ease; /* Progress animation duration */
+}
+
+.blog .register-btn:hover::before {
+  width: 100%; /* Progress bar reaches full width on hover */
+}
+
+.blog .register-btn:hover {
+  background-color: #03a7d3;
+}
+
+.blogs {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.blog1 {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  flex-basis: 30%;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog1 h2 {
+  margin-top: 15px;
+  color: #03a7d3;
+  font-size: 24px;
+}
+
+
+/* Blog hover effect */
+.blog1:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+.blog1 .register-btn {
+  margin-top: 10px;
+  background-color: #03a7d3;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+}
+
+.blog1 .register-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: width .5s ease; /* Progress animation duration */
+}
+
+.blog1 .register-btn:hover::before {
+  width: 100%; /* Progress bar reaches full width on hover */
+}
+
+.blog1 .register-btn:hover {
+  background-color: #03a7d3;
+}
+
+  
+.image h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #001553;
+  font-weight: bold;
+}
+
+.gallery {
+  margin: 0 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust to auto-fit based on screen size */
+  grid-gap: 15px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 40vh; /* Sets the height of images */
+  object-fit: cover; /* Ensures the image fills the container without stretching */
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05); /* Hover effect to zoom images */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .image h1 {
+    font-size: 1.5em;
+  }
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* Show 2 columns on tablets and smaller devices */
+  }
+  .boby{
+    width: 100%;
+    margin-right: 0!important;
+  }
+ .blogs .blog1{
+  flex-basis: 100%;
+ }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr; /* Single column on mobile devices */
+  }
+  .image h1 {
+    font-size: 1.2em;
+  }.gallery img{
+    margin:0 !important;
+    grid-gap:0px;
+  }
+}
+.register-btn {
+  margin-top: 10px;
+  background-color: #03a7d3;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+}
+
+ .register-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: width .5s ease; /* Progress animation duration */
+}
+
+.register-btn:hover::before {
+  width: 100%; /* Progress bar reaches full width on hover */
+}
+.register-btn:hover {
+  background-color: #03a7d3;
+}
+
+/* Center the heading */
+.table-heading {
+text-align: center;
+font-family: 'Poppins', sans-serif;
+color:#001553;
+margin-bottom: 20px;
+animation: fadeIn 2s ease;
+}
+
+/* Center the table container */
+.table-container {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+animation: slideUp 1.5s ease;
+}
+
+/* Style the table */
+.registration-table {
+border-collapse: collapse;
+width: 80%;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+overflow: hidden;
+background-color: white;
+animation: fadeIn 2s ease;
+}
+
+/* Table header styling */
+.registration-table th {
+background-color: #03a7d3;
+color: white;
+padding: 10px;
+text-align: center;
+font-weight: bold;
+}
+
+/* Table row styling */
+.registration-table td {
+padding: 10px;
+text-align: center;
+border: 1px solid #03a7d3;
+}
+
+/* Add hover effect on table rows */
+.registration-table tr:hover {
+background-color: rgba(3, 167, 211, 0.1);
+transition: background-color 0.3s ease;
+}
+
+/* Animation for table appearance */
+@keyframes fadeIn {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}
+
+/* Animation for table sliding up */
+@keyframes slideUp {
+from {
+transform: translateY(50px);
+opacity: 0;
+}
+to {
+transform: translateY(0);
+opacity: 1;
+}
+}
+
