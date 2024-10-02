@@ -132,3 +132,15 @@ app.get('/contactfrom', async (req, res) => {
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
+require('dotenv').config();
+const mongoose = require('mongoose');
+
+const uri = process.env.MONGODB_URI;
+if (!uri) {
+    console.error('Error: MONGODB_URI is not defined in the .env file.');
+    process.exit(1);
+}
+
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.log('Error:', err));
