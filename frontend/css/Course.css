@@ -905,6 +905,7 @@ p {
   text-decoration: none;
 }
 .container-fluid {
+  width: 100%;
   overflow: hidden;
   padding-left: 10px;
 }
@@ -1140,7 +1141,7 @@ p {
 }
 .container1{
   text-align: center;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
 /*# sourceMappingURL=style.css.map */
