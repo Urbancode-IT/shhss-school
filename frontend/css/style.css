@@ -158,6 +158,7 @@ a:focus {
   min-height: auto;
 }
  .container-fluid {
+  padding:0px !important;
   overflow: hidden;
   background-color: white;
 
