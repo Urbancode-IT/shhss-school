@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Dashboard</title>
+    <style>
+      /* Form container */
+#eventForm {
+    margin: 20px auto;
+    max-width: 800px;
+    width: 50%;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Form heading */
+#eventForm h3 {
+    font-size: 1.5rem;
+    color: var(--heading-color);
+    text-align: center;
+    margin-bottom: 20px;
+    animation: colorChange 2s infinite alternate;
+}
+
+/* Form labels */
+#eventForm .form-label {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Input fields, textarea, and select dropdown */
+#eventForm .form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus state for input fields */
+#eventForm .form-control:focus {
+    border-color: var(--heading-color);
+    box-shadow: 0 0 5px rgba(31, 49, 111, 0.5);
+}
+
+/* Submit button */
+#eventForm .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for button */
+#eventForm .btn-primary:hover {
+    background-color: var(--heading-color);
+    transform: scale(1.05);
+}
+
+/* Animation for form */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Animation for heading color change */
+@keyframes colorChange {
+    0% { color: var(--heading-color); }
+    100% { color: var(--accent-color); }
+}
+
+        /* Define CSS Variables for colors */
+        :root {
+            --heading-color: #1F316F;
+            --accent-color: #03a7d3;
+        }
+
+        /* Container styles */
+        .table-container {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 1000px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Table styles */
+        .registration-table {
+            width: 100%;
+            border-collapse: collapse;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .registration-table th, .registration-table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .registration-table th {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        .registration-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .registration-table tr:hover {
+            background-color: #e2e2e2;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Heading styles with animation */
+        .table-heading {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--heading-color);
+            margin-top: 20px;
+            animation: colorChange 2s infinite alternate, slideIn 0.5s ease-out;
+        }
+
+        /* Form styles */
+        .eventForm {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .eventForm h3 {
+            font-size: 1.5rem;
+            color: var(--heading-color);
+            text-align: center;
+            margin-bottom: 20px;
+            animation: colorChange 2s infinite alternate;
+        }
+
+        .eventForm .form-label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .eventForm .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid var(--accent-color);
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        .eventForm .form-control:focus {
+            border-color: var(--heading-color);
+            box-shadow: 0 0 5px rgba(31, 49, 111, 0.5);
+        }
+
+        .eventForm button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--accent-color);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .eventForm button:hover {
+            background-color: var(--heading-color);
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* New animation for color change */
+        @keyframes colorChange {
+            0% { color: var(--heading-color); }
+            100% { color: var(--accent-color); }
+        }
+    </style>
+</head>
+<body>
+<!-- dashboard.html -->
+<h2 class="table-heading">Event Registrations (Dashboard)</h2>
+<div class="table-container">
+  <table border="1" class="registration-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Phone</th>
+        <th>Event</th>
+        <th>Team Number</th>
+        <th>Team Name</th>
+        <th>Date & Time</th> <!-- Added Date & Time Column -->
+      </tr>
+    </thead>
+    <tbody id="dashboardRegistrationTable">
+      <!-- Registration data will be inserted here by JavaScript -->
+    </tbody>
+  </table>
+</div>
+
+<script>
+  // Function to display registration data in the dashboard table
+  function displayDashboardRegistrations() {
+    const tableBody = document.getElementById('dashboardRegistrationTable');
+    tableBody.innerHTML = ''; // Clear existing data
+
+    // Get the registration data from local storage
+    const registrations = JSON.parse(localStorage.getItem('registrations')) || [];
+
+    if (registrations.length > 0) {
+      registrations.forEach((registration, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${registration.name}</td>
+          <td>${registration.age}</td>
+          <td>${registration.phone}</td>
+          <td>${registration.event}</td>
+          <td>${registration.teamNumber}</td>
+          <td>${registration.teamName}</td>
+          <td>${registration.dateTime}</td> <!-- Display Date & Time -->
+        `;
+        tableBody.appendChild(row);
+      });
+    } else {
+      tableBody.innerHTML = '<tr><td colspan="8">No registrations found</td></tr>';
+    }
+  }
+
+  // Call the function to display the data when the page loads
+  document.addEventListener('DOMContentLoaded', displayDashboardRegistrations);
+</script>
+
+<!-- Dashboard Page - Example Form to Update Event Data -->
+<h2 class="table-heading">Update Event Details</h2>
+<div id="eventsContainer">
+  <!-- Single Form for Event Details -->
+  <form id="eventForm">
+    
+    <!-- Dropdown for Selecting Event -->
+    <div class="mb-3">
+      <label class="form-label">Select Event</label>
+      <select class="form-control" id="eventSelect" required>
+        <option value="" disabled selected>Select an event</option>
+        <option value="1">Event 1</option>
+        <option value="2">Event 2</option>
+        <option value="3">Event 3</option>
+      </select>
+    </div>
+
+    <!-- Input Fields for Event Details -->
+    <div class="mb-3">
+      <label class="form-label">Event Name</label>
+      <input type="text" class="form-control eventName" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea class="form-control eventDescription" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Time Start</label>
+      <input type="text" class="form-control timeStart" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Time End</label>
+      <input type="text" class="form-control timeEnd" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Registration Fee</label>
+      <input type="number" class="form-control registrationFee" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Event</button>
+  </form>
+</div>
+
+<script>
+  // Save event data to local storage when the form is submitted
+  document.getElementById('eventForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get the selected event ID from the dropdown
+    const eventId = document.getElementById('eventSelect').value;
+    if (!eventId) {
+      alert('Please select an event');
+      return;
+    }
+
+    // Collect form data
+    const eventData = {
+      id: eventId,
+      eventName: this.querySelector('.eventName').value,
+      eventDescription: this.querySelector('.eventDescription').value,
+      timeStart: this.querySelector('.timeStart').value,
+      timeEnd: this.querySelector('.timeEnd').value,
+      registrationFee: this.querySelector('.registrationFee').value
+    };
+
+    // Get existing events from local storage
+    let events = JSON.parse(localStorage.getItem('events')) || [];
+
+    // Update or add the event data
+    const eventIndex = events.findIndex(event => event.id === eventId);
+    if (eventIndex !== -1) {
+      events[eventIndex] = eventData;
+    } else {
+      events.push(eventData);
+    }
+
+    // Save the updated events array to local storage
+    localStorage.setItem('events', JSON.stringify(events));
+
+    alert(`Event ${eventId} details saved successfully!`);
+  });
+</script>
+
+</body>
+</html>

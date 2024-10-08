@@ -36,7 +36,48 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
   <script>(function(w, d) { w.CollectId = "66ed0a09f4318a97acfbc3c7"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
+<style>
+  /* Popup Styles */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex; /* Flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 1000;
+}
 
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 300px;
+}
+
+.popup-content p {
+    margin: 0 0 20px;
+}
+
+.popup-content button {
+    padding: 10px 20px;
+    background-color: #0e3eaf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background-color: #0a2e84;
+}
+
+</style>
 </head>
 
 <body>
@@ -464,20 +505,37 @@
             <button onclick="openWhatsApp('9345738505')" class="get-direction">Get Direction</button>
         </div>
     </div>
-          <form id="contactForm" action="/contact" method="POST" class="contact-form animated-image">
-            <h3>Contact form</h3>
-            <div class="form-group">
-                <input type="text" name="first-name" id="firstname" placeholder="First Name" required>
-                <input type="text" name="last-name" id="lastname" placeholder="Last Name" required>
-            </div>
-            <div class="form-group">
-                <input type="email" name="email" id="email" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-                <textarea name="message" placeholder="What can we help you?" required></textarea>
-            </div>
-            <button type="submit" class="send-message" id="message">Send Message</button>
-        </form>
+<!-- Success Popup -->
+<div id="successPopup" class="popup">
+  <div class="popup-content">
+      <p>Message sent successfully!</p>
+      <button onclick="closePopup('successPopup')">OK</button>
+  </div>
+</div>
+
+<!-- Error Popup -->
+<div id="errorPopup" class="popup">
+  <div class="popup-content">
+      <p>Failed to submit. Please try again.</p>
+      <button onclick="closePopup('errorPopup')">OK</button>
+  </div>
+</div>
+
+<form id="contactForm" action="/contact" method="POST" class="contact-form animated-image">
+  <h3>Contact form</h3>
+  <div class="form-group">
+      <input type="text" name="first-name" id="firstname" placeholder="First Name" required>
+      <input type="text" name="last-name" id="lastname" placeholder="Last Name" required>
+  </div>
+  <div class="form-group">
+      <input type="email" name="email" id="email" placeholder="Email" required>
+  </div>
+  <div class="form-group">
+      <textarea name="message" placeholder="What can we help you?" required></textarea>
+  </div>
+  <button type="submit" class="send-message" id="message">Send Message</button>
+</form>
+
     
 </div>
   <!-- end contact section -->
@@ -605,39 +663,53 @@ Empowering students to achieve their full potential and serve the community.
       });
     });
   </script>
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', async function(event) {
-      event.preventDefault(); // Prevent form submission
-      
-      const donorData = {
+<script>
+  document.getElementById('contactForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const donorData = {
         firstname: document.getElementById('firstname').value,
         lastname: document.getElementById('lastname').value,
         email: document.getElementById('email').value,
         message: document.querySelector('textarea[name="message"]').value,
-      };
-  
-      try {
+    };
+
+    try {
         const response = await fetch('https://shhss-school.onrender.com/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(donorData)
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(donorData)
         });
-  
+
         if (response.ok) {
-          alert('Message sent successfully!');
-          // Optionally clear the form
-          document.getElementById('contactForm').reset();
+            // Show success popup
+            showPopup('successPopup');
+            // Optionally clear the form
+            document.getElementById('contactForm').reset();
         } else {
-          alert('Failed to submit.');
+            // Show error popup
+            showPopup('errorPopup');
         }
-      } catch (error) {
+    } catch (error) {
         console.error('Error:', error);
-      }
-  });
-  
-  </script>
+        // Show error popup if fetch fails
+        showPopup('errorPopup');
+    }
+});
+
+// Function to show popup
+function showPopup(popupId) {
+    document.getElementById(popupId).style.display = 'flex';
+}
+
+// Function to close popup
+function closePopup(popupId) {
+    document.getElementById(popupId).style.display = 'none';
+}
+
+</script>
   <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- bootstrap js -->

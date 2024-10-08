@@ -36,6 +36,46 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
   <link href="css/loginadmin.css" rel="stylesheet" >
+  <style>/* Popup Styles */
+    .popup {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        display: flex; /* Use flexbox */
+        justify-content: center; /* Horizontally center */
+        align-items: center; /* Vertically center */
+        z-index: 1000;
+    }
+    
+    .popup-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        width: 300px;
+    }
+    
+    .popup-content p {
+        margin: 0 0 20px;
+    }
+    
+    .popup-content button {
+        padding: 10px 20px;
+        background-color: #0e3eaf;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .popup-content button:hover {
+        background-color: #0a2e84;
+    }
+    </style>
   <script>(function(w, d) { w.CollectId = "66ed0a09f4318a97acfbc3c7"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
 </head>
 
@@ -111,35 +151,72 @@
         </nav>
       
     </header>
-    <!-- end header section -->
-<section class="login-page">
-      <div class="login-container">
-        <h1>Login</h1>
-        <form id="loginForm">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+ <br><br><br><br>   <!-- end header section -->
+ <section class="login-page">
+  <div class="login-container">
+      <h1>Login</h1>
+      <form id="loginForm">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
 
-            <button type="submit" class="login-btn">Login</button>
-        </form>
+          <button type="submit" class="login-btn">Login</button>
+      </form>
 
-        <div class="forgot-password">
-            <p><a href="#">Forgot your password?</a></p>
-        </div>
-    </div>
-  </section>
-    <script>
-        $(document).ready(function(){
-          $('#customCarousel1').carousel({
-            interval: 100,
-            ride: 'carousel'
-          });
-        });
- </script>
-      
-    
+      <div class="forgot-password">
+          <p><a href="#">Forgot your password?</a></p>
+      </div>
+  </div>
+
+  <!-- Success and Error Popup Messages -->
+  <div id="successPopup" class="popup">
+      <div class="popup-content">
+          <p>Login successful!</p>
+          <button onclick="closePopup('successPopup')">OK</button>
+      </div>
+  </div>
+
+  <div id="errorPopup" class="popup">
+      <div class="popup-content">
+          <p>Invalid username or password. Please try again.</p>
+          <button onclick="closePopup('errorPopup')">OK</button>
+      </div>
+  </div>
+</section>
+
+<!-- Include jQuery (if not already included) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Add Your Script -->
+<script>
+  $(document).ready(function() {
+      const validUsername = 'shhss1998';
+      const validPassword = 'sacredheart2024';
+
+      $('#loginForm').on('submit', function(event) {
+          event.preventDefault(); // Prevent form submission
+
+          const username = $('#username').val();
+          const password = $('#password').val();
+
+          if (username === validUsername && password === validPassword) {
+              // Show success popup
+              $('#successPopup').fadeIn();
+              window.location.href = 'dashboard.html';
+          } else {
+              // Show error popup
+              $('#errorPopup').fadeIn();
+          }
+      });
+  });
+
+  // Function to close the popup
+  function closePopup(popupId) {
+      $('#' + popupId).fadeOut();
+  }
+</script>    
       <!-- jQery -->
       <script src="js/jquery-3.4.1.min.js"></script>
       <!-- bootstrap js -->
