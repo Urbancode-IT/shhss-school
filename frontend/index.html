@@ -505,21 +505,7 @@
             <button onclick="openWhatsApp('9345738505')" class="get-direction">Get Direction</button>
         </div>
     </div>
-<!-- Success Popup -->
-<div id="successPopup" class="popup">
-  <div class="popup-content">
-      <p>Message sent successfully!</p>
-      <button onclick="closePopup('successPopup')">OK</button>
-  </div>
-</div>
 
-<!-- Error Popup -->
-<div id="errorPopup" class="popup">
-  <div class="popup-content">
-      <p>Failed to submit. Please try again.</p>
-      <button onclick="closePopup('errorPopup')">OK</button>
-  </div>
-</div>
 
 <form id="contactForm" action="/contact" method="POST" class="contact-form animated-image">
   <h3>Contact form</h3>
@@ -690,12 +676,12 @@ Empowering students to achieve their full potential and serve the community.
             document.getElementById('contactForm').reset();
         } else {
             // Show error popup
-            showPopup('errorPopup');
+            alert('You have successfully send');
         }
     } catch (error) {
         console.error('Error:', error);
         // Show error popup if fetch fails
-        showPopup('errorPopup');
+        alert('Login Failed');
     }
 });
 
